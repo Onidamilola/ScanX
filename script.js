@@ -38,9 +38,9 @@ document
       .then(() => {
         // Define agency-specific URLs
         const agencyLinks = {
-          Elev8: "https://dummy-link-1.com",
-          ideashouse: "https://dummy-link-2.com",
-          fk: "https://dummy-link-3.com",
+          Elev8: "https://app-sorteos.com/wheel/LPPM37",
+          ideashouse: "https://app-sorteos.com/wheel/MZZJWZ",
+          fk: "https://app-sorteos.com/wheel/KWWNKG",
           Gdm: "https://app-sorteos.com/en/apps/wheel-decide?hash=1NNVQV",
         };
 
