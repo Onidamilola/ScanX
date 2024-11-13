@@ -19,10 +19,11 @@ document
 
     // Prepare data to send to Google Sheets
     fetch(
-      " https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbxOzzSPi-pM5k_5cZJ8YAgBZigaAkt2eJJaZYnAaCkncUgTqKXLcqgvuC6btbUzHisNRw/exec",
+      "https://script.google.com/macros/s/AKfycbzddkZMM6Y799J_JTbrABQMO2Zk5Q82xXPFWiezZzFqFHiuygD8-G3l_j1MiLYDZkxmAw/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        mode: "no-cors",
         body: JSON.stringify({
           fullname,
           address,
@@ -34,29 +35,22 @@ document
         }),
       }
     )
-      .then((response) => response.text())
-      .then((data) => {
-        console.log(data);
-        if (data.result === "success") {
-          // Define agency-specific URLs
-          const agencyLinks = {
-            agency1: "https://dummy-link-1.com",
-            agency2: "https://dummy-link-2.com",
-            agency3: "https://dummy-link-3.com",
-            agency4: "https://dummy-link-4.com",
-          };
+      .then(() => {
+        // Define agency-specific URLs
+        const agencyLinks = {
+          Elev8: "https://dummy-link-1.com",
+          ideashouse: "https://dummy-link-2.com",
+          fk: "https://dummy-link-3.com",
+          Gdm: "https://app-sorteos.com/en/apps/wheel-decide?hash=1NNVQV",
+        };
 
-          // Redirect based on selected agency
-          const redirectUrl = agencyLinks[agency];
-          if (redirectUrl) {
-            window.location.href = redirectUrl;
-          } else {
-            document.getElementById("status").innerText =
-              "Error: Invalid agency selected.";
-          }
+        // Redirect based on selected agency
+        const redirectUrl = agencyLinks[agency];
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
         } else {
           document.getElementById("status").innerText =
-            "Failed to log in. Try again.";
+            "Error: Invalid agency selected.";
         }
       })
       .catch((error) => {
